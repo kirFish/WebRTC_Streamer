@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 class Program
 {
@@ -7,11 +6,11 @@ class Program
     {
         string vlcPath = @"C:\Program Files\VideoLAN\VLC\vlc.exe"; // Change if VLC is installed elsewhere
         string videoPath = @"D:\VlcVideoLibrary\video1.mp4"; // Change to your video file path
-        string rtpAddress = "127.0.0.1"; // Change to your target IP
+        string rtpAddress = "127.0.0.1"; // Target IP (localhost)
         int rtpPort = 5004; // RTP port
 
         // VLC command-line arguments for RTP streaming
-        string arguments = $"\"{videoPath}\" --sout \"#rtp{{dst={rtpAddress},port={rtpPort},mux=ts}}\" --loop";
+        string arguments = $"\"{videoPath}\" --sout \"#rtp{{dst={rtpAddress},port={rtpPort},mux=ts}}\" --loop --sout-keep";
 
         try
         {
@@ -39,5 +38,3 @@ class Program
         }
     }
 }
-
-
